@@ -13,37 +13,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
-    <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
-    <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
-    <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
-    <meta name="theme-color" content="#563d7c">
+
     <title>GifTastic WebPage</title>
-
-
-
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
-
-
 
 </head>
 
@@ -53,28 +24,44 @@
             <div class="inner">
                 <h3 class="masthead-brand">Sports stars</h3>
                 <nav class="nav nav-masthead justify-content-center">
-                    <a class="nav-link active" href="#">Home</a>
-                    <a class="nav-link" href="#">Features</a>
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link active"
+                        href="https://mlusso06.github.io/Responsive-Portfolio/portfolio.html">Portfolio</a>
+                    <a class="nav-link" href="https://giphy.com/">Giphy.com</a>
+                    <a class="nav-link" href="https://www.mulesoft.com/resources/api/what-is-an-api">About APIs</a>
                 </nav>
             </div>
         </header>
 
         <main role="main" class="inner cover">
-            <h1 class="cover-heading">Cover your page.</h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit
-                the text, and add your own fullscreen background photo to make it your own.</p>
+            <h1 class="cover-heading">Search Gifs of Sports stars</h1>
+            <p class="lead">Below are the searchable Super star Gifs, click one and see what comes up. As you click the
+                image you can see it pause.</p>
             <p class="lead">
-                <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+                <!-- this will be the container for all the new buttons, and all the starting buttons-->
+                <a id=ssButtonView class="btn btn-lg btn-warning"></a>
             </p>
         </main>
+        <!-- my search button for the superstars will go here-->
+        <div class="btnContainer">
+            <form id="ssEntry-form">
+                <lable for="superstarInpt">What Super Star do you want to see?</lable>
+                <input type="text" id="superstarInpt">
 
+                <input id="addSuperStr" type="submit" value="Search SuperStar">
+
+            </form>
+
+            <!-- HOME location for the recently clicked Gif button-->
+            <div id="superStarDisplay" data-state="still"></div>
+
+
+        </div>
+        <!-- adding a footer for my page-->
         <footer class="mastfoot mt-auto">
             <div class="inner">
-                <p>Copyright 2020 <a href="https://mlusso06.github.io/Responsive-Portfolio/index.html"> Get info about Mike Lusso
-                <!-- </a>, by <a
-                        href="https://twitter.com/mdo">@mdo</a>. -->
-                    </p>
+                <p>Copyright 2020 <a href="https://mlusso06.github.io/Responsive-Portfolio/index.html"> Get info about
+                        Mike Lusso
+                </p>
             </div>
         </footer>
     </div>
