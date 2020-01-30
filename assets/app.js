@@ -9,7 +9,7 @@ $(document).ready(function () {
         // for lop used to run through the array and add buttons and add values to the button - as seen by Phil in Class hours
         for (var i = 0; i < sportStars.length; i++) {
             var button = $("<button>");
-            button.addClass("expression");
+            button.addClass("superStar");
             button.attr("data-name", sportStars[i]);
             button.text(sportStars[i]);
             $("#ssButtonView").append(button);
@@ -19,20 +19,36 @@ $(document).ready(function () {
     // run button function
     starButton();
 
-    // need an onclick listener to start the function
-    $(document).on("click", ".expression", function () {
+    $("#ssEntry-form").on("submit", function(event){
+        event.preventDefault()
+            alert($("#superstarInpt").val().trim())
+            sportStars.push($("#superstarInpt").val().trim())
+            starButton();
 
-        var athlete = $(this).html();
+    })
+
+
+
+
+
+    // need an onclick listener to start the function
+    $(document).on("click", ".superStar", function () {
+
+        var athlete = $(this).attr("data-name");
         // get results to verify i'm getting the input fron onclick
         console.log(athlete);
 
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + athlete + "&api_key=NFZvIxAVw9n0UEj3BFzwe6mKbE58SUF2";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + athlete + "&api_key=NFZvIxAVw9n0UEj3BFzwe6mKbE58SUF2";
         console.log(queryURL);
         // need to create an api call, url and key -- see previous activities in class
-        $.ajax({ url: queryURL, method: "GET" })
+        $.ajax({ 
+            url: queryURL, 
+            method: "GET" 
+        })
             // the promise for your jQuery Ajax api call
-            .done(function (response) {
+            .then(function (response) {
                 var results = response.data;
+                console.log(results)
                 $("#superStarDisplay").empty();
                 // console.log the response to see what and where the gif is, and look for q, limmit, and ratings
                 // for loop to review the information from the web site call of the api
@@ -42,26 +58,25 @@ $(document).ready(function () {
                     var imgView = results[j].images.fixed_height.url;
                     // need to be able to pause and animate the gifs
                     // having the Gif start off in the Still state, and later will allow you to click to animate
-                    var imgStill = results[j].images.fixed_height.still.url;
+                    var imgStill = results[j].images.fixed_height_still.url;
                     console.log(imgView);
 
                     var superStarGif = $("<img>").attr("src", imgStill).attr("data-animate", imgView).attr("data-still", imgStill);
                     superStarGif.attr("data-state", "still");
-                    $("superStarDisplay").prepend(superStarGif);
+                    $("#superStarDisplay").prepend(superStarGif);
                     superStarGif.on("click", animateGif);
 
                     // based homework requirments, get the rating and add to the page
                     var rating = results[j].rating;
                     var displayRating = $("<p>").text("Rating of Gif: " + rating);
                     // make sure the rating is in front of the Gif
-                    $("superStarDisplay").prepend(displayRating);
-
+                    $("#superStarDisplay").prepend(displayRating);
 
                 }
             });
 
         // need a function here to animate the gif
-
+            // using the information from activity 15 of api calls to help animate and pause Gif
         function animateGif() {
             var state = $(this).attr("data-state");
             console.log(state);
