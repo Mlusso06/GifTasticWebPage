@@ -97,14 +97,16 @@ $(document).ready(function () {
 
 
     //when the superStar button is clicked, need to generate more Gif search buttons
-    $(document).on("click", "#superStarDisplay", function () {
+    $(document).on("click", "#addSuperStr", function () {
         if ($("#superstarInpt").val().trim() == '') {
-            alert("Please add your Super Star");
+            // if my form is empty alert you to add a super star
+            alert("Add your super Star")
         }
+        // else, push the value to the button and add to the array
         else {
-            var athlete = $("#superstarInpt").val().trim();
+            var athlete = $("#addSuperStr").val().trim();
             topics.push(athlete);
-            $("#superstarInpt").val('');
+            $("#addSuperStr").val('');
             starButton();
             return false;
 
