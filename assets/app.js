@@ -38,7 +38,7 @@ $(document).ready(function () {
         // get results to verify i'm getting the input fron onclick
         console.log(athlete);
 
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + athlete + "&api_key=NFZvIxAVw9n0UEj3BFzwe6mKbE58SUF2";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + athlete + "&api_key=NFZvIxAVw9n0UEj3BFzwe6mKbE58SUF2&limit=10";
         console.log(queryURL);
         // need to create an api call, url and key -- see previous activities in class
         $.ajax({ 
